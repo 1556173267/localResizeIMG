@@ -1222,7 +1222,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function getImageData (img, callback) {
 	        function handleBinaryFile (binFile) {
 	            var data     = findEXIFinJPEG(binFile);
-	            var iptcdata = findIPTCinJPEG(binFile);
+	            try {
+	                var iptcdata = findIPTCinJPEG(binFile);
+	            } catch (error) {
+	                console.log('该图片出现未知错误');
+	                img.iptcdata = null
+	            }
 	            img.exifdata = data || {};
 	            img.iptcdata = iptcdata || {};
 	            if (callback) {

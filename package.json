@@ -1,7 +1,7 @@
 {
-  "name": "lrz",
+  "name": "superhao-lrz",
   "version": "4.9.41",
-  "description": "前端本地客户端压缩图片，兼容IOS，Android，PC、自动按需加载文件",
+  "description": "前端本地客户端压缩图片，兼容IOS，Android，PC、自动按需加载文件，修复没有IPTC导致的bug，原作者think2011",
   "main": "dist/lrz.all.bundle.js",
   "scripts": {
     "test": "node ./node_modules/karma/bin/karma start",
@@ -9,9 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/think2011/localResizeIMG.git"
+    "url": "https://github.com/1556173267/localResizeIMG.git"
   },
   "keywords": [
+    "superhao",
     "lrz",
     "localResizeIMG",
     "前端压缩图片",
@@ -19,9 +20,9 @@
     "压缩图片"
   ],
   "bugs": {
-    "url": "https://github.com/think2011/localResizeIMG/issues"
+    "url": "https://github.com/1556173267/localResizeIMG/issues"
   },
-  "author": "think2011",
+  "author": "superhao",
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.2.0",

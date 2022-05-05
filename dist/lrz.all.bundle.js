@@ -1222,7 +1222,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function getImageData (img, callback) {
 	        function handleBinaryFile (binFile) {
 	            var data     = findEXIFinJPEG(binFile);
-	            var iptcdata = findIPTCinJPEG(binFile);
+	            try {
+	                var iptcdata = findIPTCinJPEG(binFile);
+	            } catch (error) {
+	                console.log('该图片出现未知错误');
+	                img.iptcdata = null
+	            }
 	            img.exifdata = data || {};
 	            img.iptcdata = iptcdata || {};
 	            if (callback) {
@@ -2513,10 +2518,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // 判断是否iOS
 	    // 判断是否android
 	    // 判断是否QQ浏览器
-	    var IOS_VERSION = ISOldIOS ? +ISOldIOS.pop().replace(/-/g, '.') : 0
+	    var IOS_VERSION = ISOldIOS ? +ISOldIOS.pop().replace(/_/g, '.') : 0
 	    return {
 	        oldIOS    : ISOldIOS ? IOS_VERSION < 8 : false,
-	        newIOS    : ISOldIOS ? IOS_VERSION >= 13 : false,
+	        newIOS    : ISOldIOS ? IOS_VERSION >= 13.4 : false,
 	        oldAndroid: isOldAndroid ? +isOldAndroid.pop().substr(0, 3) < 4.5 : false,
 	        iOS       : /\(i[^;]+;( U;)? CPU.+Mac OS X/.test(userAgent),
 	        android   : /Android/g.test(userAgent),
